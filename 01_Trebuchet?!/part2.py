@@ -16,7 +16,7 @@ def reverse(string):
 def first_last(i):
     first = re.search(r'\d|one|two|three|four|five|six|seven|eight|nine', i)[0]
     if first.isalpha():
-        for word in first:
+        while True:
             # should be able to file in the first and second paramaters
             # from a list in a for loop instead of manually doing this but it
             # works I guess
@@ -29,11 +29,12 @@ def first_last(i):
             first = first.replace("seven", "7")
             first = first.replace("eight", "8")
             first = first.replace("nine", "9")
+            break
     i = reverse(i)
     # what am I even doing????
     last = re.search(r'\d|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin', i)[0]
     if last.isalpha():
-        for word in last:
+        while True:
             # comment above would also work here, except use the reverse
             # function for each word in the list
             last = last.replace("eno", "1")
@@ -45,6 +46,7 @@ def first_last(i):
             last = last.replace("neves", "7")
             last = last.replace("thgie", "8")
             last = last.replace("enin", "9")
+            break
     # append numbers together as string
     string = str(first + last)
     # convert to integer
