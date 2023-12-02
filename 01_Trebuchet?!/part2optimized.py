@@ -14,11 +14,6 @@ d = {
 }
 
 
-def reverse(string):
-    string = string[::-1]
-    return string
-
-
 def word2digit(string):
     if string.isalpha():
         return d[string]
@@ -34,8 +29,8 @@ def first_last(line):
     # if the pattern can be created from the dictionary I could just reverse
     # each in the list
     pattern = r'\d|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin'
-    last = re.search(pattern, reverse(line))[0]
-    last = word2digit(reverse(last))
+    last = re.search(pattern, (line)[::-1])[0]
+    last = word2digit((last)[::-1])
 
     return int(str(first + last))
 
