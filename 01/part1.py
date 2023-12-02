@@ -25,7 +25,7 @@ num = 0
 
 # add all the numbers up
 for line in file:
-    num = first_last_pt1(line) + int(num)
+    num = first_last_pt1(line) + num
 
 # return solution to part 1
 print('part one answer:', num)

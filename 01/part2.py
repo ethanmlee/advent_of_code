@@ -56,7 +56,7 @@ num = 0
 
 # add all the numbers up
 for line in file:
-    num = first_last(line) + int(num)
+    num = first_last(line) + num
 
 # return solution to part 2
 print('part two asnwer:', num)
