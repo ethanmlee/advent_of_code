@@ -30,7 +30,7 @@ def first_last(i):
             first = first.replace("eight", "8")
             first = first.replace("nine", "9")
     i = reverse(i)
-    # holy shit wtf am I doing????
+    # what am I even doing????
     last = re.search(r'\d|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin', i)[0]
     if last.isalpha():
         for word in last:
