@@ -7,7 +7,7 @@ file = open('input.txt', 'r')
 
 
 # combines first and last digits of a string
-def first_last_pt1(i):
+def first_last(i):
     # find all digits and make a list
     match = re.findall(r'\d', i)
     # return first digit
@@ -25,7 +25,7 @@ num = 0
 
 # add all the numbers up
 for line in file:
-    num = first_last_pt1(line) + num
+    num = first_last(line) + num
 
 # return solution to part 1
 print('part one answer:', num)
