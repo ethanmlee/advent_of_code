@@ -38,6 +38,8 @@ def first_last_pt2(i):
     first = re.search(r'\d|one|two|three|four|five|six|seven|eight|nine', i)[0]
     if first.isalpha():
         for word in first:
+            # should be able to file in the first and second paramaters
+            # from a list in a for loop instead of manually doing this but it
             first = first.replace("one", "1")
             first = first.replace("two", "2")
             first = first.replace("three", "3")
@@ -51,6 +53,8 @@ def first_last_pt2(i):
     last = re.search(r'\d|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin', i)[0]
     if last.isalpha():
         for word in last:
+            # solution above would also work here, except use the reverse
+            # function for each in the list
             last = last.replace("eno", "1")
             last = last.replace("owt", "2")
             last = last.replace("eerht", "3")
