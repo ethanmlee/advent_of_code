@@ -40,6 +40,7 @@ def first_last_pt2(i):
         for word in first:
             # should be able to file in the first and second paramaters
             # from a list in a for loop instead of manually doing this but it
+            # works I guess
             first = first.replace("one", "1")
             first = first.replace("two", "2")
             first = first.replace("three", "3")
