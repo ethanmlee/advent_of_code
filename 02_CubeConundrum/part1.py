@@ -2,35 +2,32 @@
 
 file = open('input.txt', 'r')
 
-max_red = 12
-max_green = 13
-max_blue = 14
+colors = ['red', 'green', 'blue']
+colors_max = {'red': 12, 'green': 13, 'blue': 14}
+final = 0
 
-red = 0
-green = 0
-blue = 0
-
-
-# parsing this file sucks
 for line in file:
+    # game number
+    gamenum = line.split(":")[0].split(" ")[-1]
+    isPossible = True
 
-    # game number equals
-    game = line.split(":")[0].split(" ")[-1]
-    print("game:" + game)
-
+    # create and clean cubelist
     cubelist = line.split(":")[1:]
     for each in cubelist:
+        each = each.replace(";",  ",")
+        cubelist = each.split(",")
+        cubelist = [x.lstrip().strip() for x in cubelist]
 
-        # whats in the bag
-        bag = each.split(";")
-        print(bag)
-        for each in bag:
+    for each in cubelist:
+        color_count = each.split(" ")
+        color = color_count[1]
+        number = color_count[0]
+        max = colors_max[color]
 
-            baglist = each.split(",")
+        if int(number) > max:
+            isPossible = False
+    if isPossible is True:
+        print(gamenum)
+        final = final + int(gamenum)
 
-            for numcolors in baglist:
-
-                numcolors = numcolors.strip().split(" ")
-                # how do add this up into the color name values defined at the
-                # top?
-                numcolors[1] = int(numcolors[0]) + int(numcolors[1])
+print(final)
