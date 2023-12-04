@@ -1,6 +1,16 @@
 #!/bin/python
 import re
 
+# FILTERED ON DAY 3 PART 1 :(
+
+# I was trying to draw a coordinate box around each number. I think it would
+# have been easier if I used an array or something.
+
+# some other ideas on how to do it in no particular order:
+# - use a fucking array or grid but I am a bad programmer and don't know that
+#   and wanted to avoid it if I could
+# - look for symbols instead of numbers
+# - git gud
 
 file = open('input.txt', 'r')
 
@@ -28,6 +38,10 @@ for line in file:
         print()
 
         # FUCK LINES HAVE REPEATING NUMBERS
+        # I was trying to make a dictionary with the information needed for
+        # another for loop here but the numbers kept getting overwritten
+        # if a line had the same number twice.
+
         # howmany = line.count(each)
         # if howmany > 1:
         #     print(howmany)
