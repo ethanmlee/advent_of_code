@@ -1,6 +1,10 @@
 #!/bin/python
 import re
-file = open('input.txt', 'r')
+import sys
+
+input_file = sys.argv[1]
+
+file = open(input_file, 'r')
 d = {
     'one': '1',
     'two': '2',

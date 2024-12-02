@@ -1,6 +1,9 @@
 #!/bin/python
+import sys
 
-file = open('input.txt', 'r')
+input_file = sys.argv[1]
+
+file = open(input_file, 'r')
 
 colors = ['red', 'green', 'blue']
 colors_max = {'red': 12, 'green': 13, 'blue': 14}

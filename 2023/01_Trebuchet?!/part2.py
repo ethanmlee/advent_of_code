@@ -1,9 +1,12 @@
 #!/bin/python
 # could I do this without importing re?
 import re
+import sys
+
+input_file = sys.argv[1]
 
 # input.txt as file
-file = open('input.txt', 'r')
+file = open(unput_file, 'r')
 
 
 # function to reverse the string

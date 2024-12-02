@@ -12,7 +12,11 @@ import re
 # - look for symbols instead of numbers
 # - git gud
 
-file = open('input.txt', 'r')
+import sys
+
+input_file = sys.argv[1]
+
+file = open(input_file, 'r')
 
 period = "."
 linenum = 0
