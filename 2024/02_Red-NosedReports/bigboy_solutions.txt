@@ -1,5 +1,4 @@
 bigboy #2
-url:     http://0x0.st/X7HT.txt.7z
 reports: 500K
-silver:  105674
-gold:    140748
+silver:  106167
+gold:    142259
