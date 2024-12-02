@@ -1,0 +1,5 @@
+bigboy #1
+url:    http://0x0.st/XRnR.txt.7z
+pairs:  4M
+silver: 70030075280
+gold:   112445724586901
