@@ -1,11 +1,13 @@
 #!/bin/sh
 silver=0
+gold=0
 
 is_safe() {
   line="$1"
   fnum=1
   oldneg=""
   safe="True"
+  # -1 bc stops at secont to last number in list
   while [ "$fnum" -le "$(( $(echo "$line" | wc -w) - 1 ))" ]; do
     addnum=$((fnum + 1))
 
@@ -32,15 +34,40 @@ is_safe() {
   echo $safe
 }
 
+pd_safe() {
+  line="$1"
+  safe="False"
+  skip=1
+
+  local IFS=" "
+  numbers=$line
+
+  while [ $skip -le $(echo "$numbers" | wc -w) ]; do
+    new_line=""
+    i=1
+    for num in $numbers; do
+      [ $i != $skip ] && new_line="$new_line $num"
+      i=$((i + 1))
+    done
+
+    [ "$(is_safe "$new_line")" = "True" ] && { safe="True"; break; }
+
+    skip=$((skip + 1))
+  done
+
+  echo "$safe"
+}
+
 while read -r line; do
   echo $line
 
   # id safe then iterate
-  if [ "$(is_safe "$line")" = "True" ]; then
-    silver=$((silver + 1))
-    continue
-  fi
+  [ "$(is_safe "$line")" = "True" ] && { silver=$((silver + 1)); gold=$((gold + 1)); continue; }
+
+  # pd_safe iterate
+  [ "$(pd_safe "$line")" = "True" ] && gold=$((gold + 1))
 
 done < $@
 
 echo $silver
+echo $gold
