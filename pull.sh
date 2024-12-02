@@ -45,7 +45,7 @@ wget -q "$bigboy_url" -O "$dir/day$day.7z"
 
 # Extract bigboy archive if downloaded
 if [ -f "$dir/day$day.7z" ]; then
-    7z x "$dir/day$day.7z" -o"$dir/"
+    7z x -y "$dir/day$day.7z" -o"$dir/"
     rm "$dir/day$day.7z"
 fi
 
