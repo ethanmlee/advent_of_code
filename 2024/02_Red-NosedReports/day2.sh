@@ -21,16 +21,12 @@ is_safe() {
     # not safe if isneg changes
     [ "$oldneg" != "" ] && [ "$isneg" != "$oldneg" ] && { safe="False"; return; }
     oldneg="$isneg"
-
-
     # not safe if diff greater 3 or less than 1
     [ $d -gt 3 ] || [ $d -lt 1 ] && { safe="False"; return; }
-
 
     # reset x and y for next time in loop
     fnum=$addnum
   done
-
   echo $safe
 }
 
@@ -38,10 +34,8 @@ pd_safe() {
   line="$1"
   safe="False"
   skip=1
-
   local IFS=" "
   numbers=$line
-
   while [ $skip -le $(echo "$numbers" | wc -w) ]; do
     new_line=""
     i=1
@@ -49,25 +43,19 @@ pd_safe() {
       [ $i != $skip ] && new_line="$new_line $num"
       i=$((i + 1))
     done
-
     [ "$(is_safe "$new_line")" = "True" ] && { safe="True"; break; }
-
     skip=$((skip + 1))
   done
-
   echo "$safe"
 }
 
+# main loop
 while read -r line; do
   echo $line
-
-  # id safe then iterate
   [ "$(is_safe "$line")" = "True" ] && { silver=$((silver + 1)); gold=$((gold + 1)); continue; }
-
-  # pd_safe iterate
   [ "$(pd_safe "$line")" = "True" ] && gold=$((gold + 1))
-
 done < $@
 
+echo
 echo $silver
 echo $gold

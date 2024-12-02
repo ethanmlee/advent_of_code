@@ -10,14 +10,18 @@ for i in $(seq 1 $(wc -l < $@)); do
   mc2=$(echo $c2 | awk -v n=$i '{print $n}')
 
   d=$(expr $mc1 - $mc2)
-  
+
   # if negative then make positive
   [ $d -lt 0 ] && d=$(expr $d \* -1)
+
+
+  echo $mc1 $mc2 $d
 
   silver=$(expr $silver + $d)
   gold=$(expr $ss \* $mc1 + $gold)
 
 done
 
+echo
 echo $silver
 echo $gold
