@@ -22,8 +22,8 @@ fi
 # Prepare URLs
 url="https://adventofcode.com/$year/day/$day"
 input_url="$url/input"
-bigboy_url="https://github.com/Error916/Aoc2024/raw/refs/heads/main/bigboys/day$day.7z"
-bigboy_solutions_url="https://raw.githubusercontent.com/Error916/Aoc2024/refs/heads/main/bigboys/day${day}_solutions.txt"
+bigboy_url="https://github.com/Error916/Aoc$year/raw/refs/heads/main/bigboys/day$day.7z"
+bigboy_solutions_url="https://raw.githubusercontent.com/Error916/Aoc$year/refs/heads/main/bigboys/day${day}_solutions.txt"
 
 # Fetch page and extract challenge name
 pull=$(curl -s --header "Cookie: session=$session;" "$url")
@@ -37,7 +37,7 @@ mkdir -p "$dir"
 curl -s --header "Cookie: session=$session;" "$input_url" -o "$dir/input.txt"
 
 # Create run script
-touch "$dir/run.sh" && chmod +x "$dir/run.sh"
+# touch "$dir/run.sh" && chmod +x "$dir/run.sh"
 
 # Download bigboy files
 wget -q "$bigboy_solutions_url" -O "$dir/bigboy_solutions.txt"
