@@ -18,6 +18,7 @@ for file in "$@"; do
 
   done < "$file"
 
+  echo
   echo $silver
 
 done
