@@ -1,0 +1,4 @@
+bigboy #4
+size:   15000x15000
+silver: 7025140
+gold:   879274
