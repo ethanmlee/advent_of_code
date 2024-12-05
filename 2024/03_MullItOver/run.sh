@@ -2,7 +2,7 @@
 
 loop () {
   out=0
-  mul=$(cat $1 | grep -oP 'mul\([0-9]{1,3},[0-9]{1,3}\)')
+  mul=$($1 | grep -oP 'mul\([0-9]{1,3},[0-9]{1,3}\)')
 
   for each in $mul; do
     x=$(echo ${each%,*} | cut -c 5-)
@@ -15,8 +15,14 @@ loop () {
 }
 
 for file in "$@"; do
-  silver=$(loop $file)
+  silver=$(loop "cat $file")
+
+  gold_file=$(sed ':a;/don'\''t()[^d]*do()/{s/don'\''t()[^d]*do()//; ba}' "$file")
+
+  gold=$(loop "echo $gold_file")
+
 done
 
 echo
 echo $silver
+echo $gold
